@@ -1,0 +1,189 @@
+/* HeroDetailComponent's private CSS styles */
+label {
+    display: inline-block;
+    width: 3em;
+    margin: .5em 0;
+    color: #607D8B;
+    font-weight: bold;
+  }
+  input {
+    height: 2em;
+    font-size: 1em;
+    padding-left: .4em;
+  }
+  button {
+    margin-top: 20px;
+    font-family: Arial;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+  }
+  button:hover {
+    background-color: #cfd8dc;
+  }
+  button:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
+  }
+  .navbar
+  {
+    padding: 0.5rem 0rem;
+  }
+
+  .btn-secondary
+  {
+    background:#008BFF;
+    border-radius: 12px;
+    width: 95px;
+    height: 50px;
+    font-size: large;
+  }
+
+  .shopCart
+  {
+    font-weight: bold;
+  }
+
+ .aliniere
+ {
+   text-align: center;
+ }
+
+ .productsNav
+  {
+    font-weight: bold;
+    color:black;
+    font-size: 30px;
+    position: absolute;
+  }
+
+  .btn-primary {
+    background:#FF6666;
+    color: black;
+    font-size: large;
+    border-radius: 15%;
+    width: 90px;
+    height: 40px;
+  }
+
+  .btn-primary:hover {
+    background:rgb(233, 49, 49);
+  }
+
+  .btn-secondary
+  {
+    background:#008BFF;
+    border-radius: 12px;
+    width: 95px;
+    height: 50px;
+    font-size: large;
+    font-weight: bold;
+    border: 1px solid black;
+  }
+
+  .btn-secondary:hover {
+    background:rgb(22, 37, 243);
+  }
+
+  .btn-secondary1
+  {
+    background:#F5F5F5;
+    border-radius: 12px;
+    width: 95px;
+    height: 50px;
+    font-size: large;
+    font-weight: bold;
+    border: 1px solid black;
+  }
+
+  .navButtons
+  {
+    padding-left: 75%;
+    position: relative;
+  }
+
+  .saveButton
+  {
+    padding-left: 30px;
+  }
+
+  .productInfo
+  {
+    font-size:20px;
+  }
+
+  .productInfoDescription
+  {
+    font-size:20px;
+    margin-right: auto;
+    vertical-align: text-top;
+  }
+
+  .poza
+  {
+    display: block;
+    margin-left: auto;
+    width: 270px;
+    height: 202px;
+  }
+
+  .scris
+  {
+    float: left;
+  }
+
+  .editInputDescription
+  {
+    width: 98.7%;
+    height: 100px;
+    vertical-align: text-top;
+  }
+
+  textarea {
+    width: 99.5%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #A9A9A9;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 21px;
+    resize: none;
+  }
+
+  .editButtons
+  {
+    margin-left: auto;
+  }
+
+  input.ng-invalid.ng-touched
+  {
+    border-color: red!important;
+    background: #FFDDDD!important;
+  }
+
+  input:focus
+  {
+    border-color: green;
+    background: #DDFFDD;
+    outline: none;
+  }
+
+  textarea.ng-invalid.ng-touched
+  {
+    border-color: red!important;
+    border: 2px solid;
+    background: #FFDDDD!important;
+  }
+
+  textarea:focus
+  {
+    border: 2px solid green;
+    background: #DDFFDD;
+    outline: none;
+  }
+

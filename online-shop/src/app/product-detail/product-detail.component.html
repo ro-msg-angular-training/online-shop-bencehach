@@ -1,0 +1,63 @@
+
+<div *ngIf="product" class="mt-3 container">
+
+    <nav class="navbar ">
+
+        <div class="mb-3 row container">
+
+            <div class="mt-3 col-6">
+                    <span class="productsNav">Product: {{product.name}}</span>
+            </div>
+
+            <div class="col-2"></div>
+            <div class="col-4">
+              <div class="d-flex flex-row-reverse bd-highlight">
+                <div class="p-2 bd-highlight"><button type="button" (click)="addToCart()" class="btn btn-secondary" > ADD</button></div>
+                <div class="p-2 bd-highlight"><button (click)="modalFunction()" type="button" [hidden]="!isAdmin" class="btn btn-primary" >DELETE</button></div>
+                <div class="p-2 bd-highlight"><button routerLink="/edit/{{product.id}}" [hidden]="!isAdmin" type="button" class="btn btn-secondary"> EDIT</button></div>
+              </div>
+                </div>
+       </div>
+    </nav>
+
+  <div class="mt-5 container">
+
+    <div class="scris mt-3">
+    <span style= "padding-right: 20px;" class=" productInfo" > <p class="mt-4">Name <i style="padding-right: 58px;"></i> {{product.name}}</p> </span>
+    <span style= "padding-right: 20px;" class="productInfo" > <p>Category <i style="padding-right: 30px;"></i>{{product.category}}</p> </span>
+    <span style= "padding-right: 20px;" class="productInfo" >  <p >Price <i style="padding-right: 63px;"></i>{{product.price}} RON</p> </span>
+    </div>
+
+    <div class="mb-5 imagine mt-5">
+      <img src="{{product.image}}" class="poza">
+      </div>
+
+    <span style= "padding-right: 20px;" class="productInfoDescription" >  <p class="mt-3">Description <i style="padding-right: 10px;"></i>{{product.description}}</p> </span>
+
+  <div class="back1 mt-3"> <button (click)="goBack()"><i class="fas fa-arrow-left fa-2x"></i></button> </div>
+
+
+<div id="myModal" class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="showModal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Confirm</h5>
+          <button class="close" (click)="modalFunction()"><i class="far fa-circle"></i></button>
+         </div>
+      <div class="modal-body">
+       Are you sure you want to remove the "{{product.name}}" product?
+      </div>
+      <div class="modal-footer">
+        <button (click)="modalFunction()" class="buttonModalCancel" type="button" data-dismiss="modal">Cancel</button>
+      <span class="modalOk">  <button (click)="delete(product)" type="button" class="buttonModalDelete">OK</button></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
+

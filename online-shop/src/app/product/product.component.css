@@ -4,7 +4,7 @@
     list-style-type: none;
     padding: 0;
     width: 15em;
-    
+
   }
   .products li {
     cursor: pointer;
@@ -13,7 +13,7 @@
     background-color: #EEE;
     margin: .5em;
     padding: .3em 0;
-    height: 1.6em;
+    height: 2.2em;
     border-radius: 4px;
   }
   .products li:hover {
@@ -39,7 +39,83 @@
     position: relative;
     left: -1px;
     top: -4px;
-    height: 1.8em;
+    height: 2.6em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
+
+  .btn-primary {
+    color: rgb(11, 30, 199);
+    background-color: transparent;
+    border-color: transparent;
+    font-size: large;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+  }
+
+  .productsNav
+  {
+    font-weight: bold;
+    color:black;
+    font-size: 30px;
+  }
+
+  .navbar
+  {
+    padding: 0.5rem 0rem;
+  }
+
+  .btn-secondary
+  {
+    background:#008BFF;
+    position: relative;
+    top: 5px;
+    width: 110px;
+    border-radius: 12px;
+    border: 1px solid black;
+  }
+
+  .btn-Add
+  {
+    width: 110px;
+    background:#008BFF;
+    border-radius: 12px;
+    height: 48.4px;
+    position: relative;
+    top: 5px;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+  }
+
+ .addButton
+ {
+   padding-left: 31px;
+ }
+
+  .shopCart
+  {
+    padding-left: 35%;
+  }
+
+ .aliniere
+ {
+   text-align: center;
+ }
+
+ .row
+ {
+   margin-left: -30px;
+   margin-right: 0px;
+ }
+
+ .row.container
+ {
+   width: 1200px;
+ }

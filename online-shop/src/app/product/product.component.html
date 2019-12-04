@@ -1,21 +1,49 @@
-<h2 text>My products</h2>
-<ul class="products">
-  <li *ngFor="let product of products" [class.selected]="product === selectedProduct" (click)="onSelect(product)">
-    <span class="badge">{{product.id}}</span> {{product.name}}
-  </li>
-</ul>
+
+<div class="mt-4 container">
 
 
-<div *ngIf="selectedProduct">
 
-<h2>{{selectedProduct.name | uppercase}} Details</h2>
-<div><span>id: </span>{{selectedProduct.id}}</div> 
-<div>
-  <label>name:
-    <input [(ngModel)]="selectedProduct.name" placeholder="name"/>
-  </label>
-</div>
+    <nav class="navbar">
 
-<div><span>price: </span>{{selectedProduct.price}}</div> 
+      <div class="row container pr-0">
+        <div class="col-4">
+          <a class="navbar navbar-brand">
+          <span class="productsNav">Products</span>
+          </a>
+       </div>
+        <div class="col-4"></div>
+        <div class="col-4 pr-0">
+
+          <div class="d-flex flex-row-reverse bd-highlight">
+            <div class="ml-2 mr-0 p-2 bd-highlight"><button type="button" class="btn btn-Add" [hidden]="!isAdmin" routerLink="/add"> ADD </button></div>
+            <div class="p-2 bd-highlight"><button type="button" routerLink="/shopping-cart" class="btn btn-secondary">  <i class="fas fa-cart-plus fa-2x"></i>   </button></div>
+          </div>
+
+        </div>
+      </div>
+     </nav>
+
+<table class="table border">
+  <thead class="table table-dark">
+
+      <tr>
+      <th scope="col">Category</th>
+      <th scope="col">Product Name</th>
+      <th class="aliniere" scope="col"> Price</th>
+      <th class="aliniere" scope="col">Option</th>
+    </tr>
+    </thead>
+
+<tbody>
+  <tr *ngFor="let product of products" >
+
+    <td >{{product.category}}</td>
+    <td >{{product.name}}</td>
+    <td align="center">{{product.price}}</td>
+    <td align="center"> <a routerLink="/detail/{{product.id}}"><button type="button" class="btn btn-primary">></button> </a> </td>
+
+  </tr>
+</tbody>
+</table>
 
 </div>

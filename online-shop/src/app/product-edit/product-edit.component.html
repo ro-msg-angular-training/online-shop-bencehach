@@ -1,0 +1,75 @@
+  <div class="mt-4 container">
+
+      <nav class="navbar">
+
+          <div class="row container">
+
+              <div class="col-6 mb-3">
+                      <span class="mt-3 productsNav" *ngIf="route.snapshot.url.toString().includes('edit')">Edit: {{productForm.value.name}}</span>
+                      <span class="mt-3 productsNav" *ngIf="route.snapshot.url.toString().includes('add')">Add a new product</span>
+              </div>
+
+              <div class="col-6"></div>
+         </div>
+      </nav>
+
+  <div class="container">
+
+       <form [formGroup]="productForm">
+
+         <div class="row container pr-0 mt-4">
+           <div class="col-1 pl-0 pt-1 mb-3 mt-5"> <h4> Name </h4> </div>
+           <div class="col-11 pr-0 mb-3">
+             <input  id="wow" class="productInfo w-100 ml-2 mt-5"  formControlName="name"/>
+             <span class="pl-2"   [hidden]="!findInvalidControls('name')" > Product name must contain at least 4 characters </span>
+           </div>
+         </div>
+
+        <div class="row container pr-0">
+           <div class="col-1 pl-0 pt-1 mt-4"> <h4> Category </h4> </div>
+           <div class="col-11 pr-0 mt-4 mb-3">
+             <input class="productInfo w-100 ml-2"  formControlName="category"/>
+             <span class="pl-2"   [hidden]="!findInvalidControls('category')" > Product category must contain at least 2 characters </span>
+           </div>
+         </div>
+
+         <div class="row container pr-0">
+           <div class="col-1 pl-0 pt-1 mt-4"> <h4> Image </h4> </div>
+           <div class="col-11 pr-0 mt-4 mb-3">
+             <input class="productInfo w-100 ml-2"  formControlName="image"/>
+             <span class="pl-2"   [hidden]="!findInvalidControls('image')" > Product image must contain at least 10 characters </span>
+           </div>
+         </div>
+
+         <div class="row container pr-0">
+           <div class="col-1 pl-0 pt-1 mt-4"> <h4> Price </h4> </div>
+           <div class="col-11 pr-0 mt-4 mb-3">
+             <input class="productInfo w-100 ml-2"  formControlName="price"/>
+             <span class="pl-2"   [hidden]="!findInvalidControls('price')" > Product price must be a decimal number </span>
+           </div>
+         </div>
+
+          <span  class="productInfoDescription w-auto">
+           <textarea class="mt-4 w-99" formControlName="description" > </textarea>
+          <span class="pl-2"   [hidden]="!findInvalidControls('description')" > Product description must contain at least 15 characters </span>
+          </span>
+
+       </form>
+
+     <div class="row container pr-0">
+
+       <div class="col-8"> </div>
+       <div class="col-4 pr-0">
+
+       <div class="d-flex flex-row-reverse bd-highlight">
+        <div class="ml-2 mr-0 p-2 bd-highlight"><button  class="btn btn-secondary1" (click)="goBack()"> CANCEL </button></div>
+
+        <div class="p-2 bd-highlight"><button type="submit" class="btn btn-secondary" (click)="save()"  [disabled]="!productForm.valid" >SAVE</button></div>
+
+      </div>
+     </div>
+
+     </div>
+
+  </div>
+  </div>
