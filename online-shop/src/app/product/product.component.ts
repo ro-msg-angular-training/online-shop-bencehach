@@ -1,54 +1,51 @@
-import {Component, NgModule, OnDestroy, OnInit} from '@angular/core';
-import {Product} from '../product';
+import {Component, OnInit} from '@angular/core';
+import {AppState, Product} from '../product';
 import {ProductService} from '../product.service';
-import {RouterModule} from '@angular/router';
-import {AuthGuard} from '../auth.guard';
-import {AuthGuardService} from '../guards/auth-guard.service';
-import {AuthenticationService} from '../authentication.service';
 import {UserService} from '../user.service';
+import {select, Store} from '@ngrx/store';
+import {selectProductList} from '../store/selectors/product.selector';
+import {User} from '../User';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit, OnDestroy {
+export class ProductComponent implements OnInit {
 
   products: Product[];
-  isAdmin= false;
-  roles: string[];
+  user: User;
 
-  constructor(private productService: ProductService, private authenticationService:AuthenticationService, private userService: UserService) {
+  products$;
+  isAdmin = false;
+
+  constructor(
+    private productService: ProductService,
+    private userService: UserService,
+    private store: Store<AppState>
+  ) {
+    this.products$ = this.store.pipe(select(selectProductList));
   }
 
   getProducts(): void {
-    this.productService.getProducts()
-      .subscribe(products => this.products = products);
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
+    });
   }
 
-  getRoles()
-  {
-    this.userService.getUser(localStorage.getItem('username')).subscribe(
-      user =>
-      {
-        this.roles=user.roles;
-
-        this.roles.find(elem =>
-        {
-          if(elem === 'admin')
-            this.isAdmin=true;
-        })
+  getRoles() {
+    this.userService.getUser(localStorage.getItem('username')).subscribe(user => {
+      if (user.role.roleName.toLowerCase() === 'admin') {
+        this.isAdmin = true;
       }
-    )
+    });
   }
+
 
   ngOnInit() {
+    // this.store.dispatch(new GetProducts());
     this.getProducts();
     this.getRoles();
-  }
-
-  ngOnDestroy(): void {
-     // this.authenticationService.logout();
   }
 
 }

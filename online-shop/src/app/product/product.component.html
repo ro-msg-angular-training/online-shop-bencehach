@@ -1,49 +1,48 @@
-
 <div class="mt-4 container">
 
-
-
-    <nav class="navbar">
-
-      <div class="row container pr-0">
-        <div class="col-4">
-          <a class="navbar navbar-brand">
+  <nav class="navbar">
+    <div class="row container pr-0">
+      <div class="col-4">
+        <a class="navbar navbar-brand">
           <span class="productsNav">Products</span>
-          </a>
-       </div>
-        <div class="col-4"></div>
-        <div class="col-4 pr-0">
-
-          <div class="d-flex flex-row-reverse bd-highlight">
-            <div class="ml-2 mr-0 p-2 bd-highlight"><button type="button" class="btn btn-Add" [hidden]="!isAdmin" routerLink="/add"> ADD </button></div>
-            <div class="p-2 bd-highlight"><button type="button" routerLink="/shopping-cart" class="btn btn-secondary">  <i class="fas fa-cart-plus fa-2x"></i>   </button></div>
+        </a>
+      </div>
+      <div class="col-4"></div>
+      <div class="col-4 pr-0">
+        <div class="d-flex flex-row-reverse bd-highlight">
+          <div class="ml-2 mr-0 p-2 bd-highlight">
+            <button type="button" class="btn btn-Add" [hidden]="!isAdmin" routerLink="/add"> ADD</button>
           </div>
-
+          <div class="p-2 bd-highlight">
+            <button type="button" routerLink="/shopping-cart" class="btn btn-secondary"><i
+              class="fas fa-cart-plus fa-2x"></i></button>
+          </div>
         </div>
       </div>
-     </nav>
+    </div>
+  </nav>
 
-<table class="table border">
-  <thead class="table table-dark">
-
-      <tr>
+  <table class="table border">
+    <thead class="table table-dark">
+    <tr>
       <th scope="col">Category</th>
       <th scope="col">Product Name</th>
       <th class="aliniere" scope="col"> Price</th>
       <th class="aliniere" scope="col">Option</th>
     </tr>
     </thead>
-
-<tbody>
-  <tr *ngFor="let product of products" >
-
-    <td >{{product.category}}</td>
-    <td >{{product.name}}</td>
-    <td align="center">{{product.price}}</td>
-    <td align="center"> <a routerLink="/detail/{{product.id}}"><button type="button" class="btn btn-primary">></button> </a> </td>
-
-  </tr>
-</tbody>
-</table>
+    <tbody>
+    <!-- <tr *ngFor="let product of (products$ | async)" >-->
+    <tr *ngFor="let product of products">
+      <td>{{product.categoryName}}</td>
+      <td>{{product.productName}}</td>
+      <td align="center">{{product.price}}</td>
+      <td align="center"><a routerLink="/detail/{{product.id}}">
+        <button type="button" class="btn btn-primary">></button>
+      </a></td>
+    </tr>
+    </tbody>
+  </table>
 
 </div>
+

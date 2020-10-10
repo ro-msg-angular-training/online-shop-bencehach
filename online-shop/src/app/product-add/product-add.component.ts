@@ -4,6 +4,7 @@ import {Location} from '@angular/common';
 
 import {ProductService} from '../product.service';
 import {Product} from '../product';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-product-add',
@@ -18,7 +19,8 @@ export class ProductAddComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private location: Location
+    private location: Location,
+    private store: Store<{ productList: { products: Product[] } }>
   ) {
   }
 
@@ -38,11 +40,11 @@ export class ProductAddComponent implements OnInit {
     this.location.back();
   }
 
-  add(name: string, category: string, image: string, price: number, description: string): void {
-    if (!name) {
+  add(productName: string, categoryName: string, image: string, price: number, description: string): void {
+    if (!productName) {
       return;
     }
-    this.productService.addProduct({name, category, image, price, description} as Product)
+    this.productService.addProduct({productName, categoryName, image, price, description} as Product)
       .subscribe(() => this.goBack());
   }
 

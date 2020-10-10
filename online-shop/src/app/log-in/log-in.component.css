@@ -11,7 +11,7 @@ body {
   height: 325px;
   border: 1.5px solid #9E9E9E;
   background-color: #fff;
-  margin-left: 115px;
+  margin-left: 120px;
 }
 #login .container #login-row #login-column #login-box #login-form {
   padding: 20px;
@@ -25,7 +25,10 @@ body {
 {
   border-bottom: 2px solid #e3fdff;
 }
-
+.register{
+  position: relative;
+  text-align: center;
+}
 .btn-primary
 {
   background: rgb(102, 186, 255);

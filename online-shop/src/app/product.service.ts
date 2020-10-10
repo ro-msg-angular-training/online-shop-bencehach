@@ -1,23 +1,21 @@
 import {Injectable} from '@angular/core';
 
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 
 import {Product} from './product';
-import {MessageService} from './message.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Email} from './Email';
 
 @Injectable({providedIn: 'root'})
 export class ProductService {
 
-  private productsUrl = 'http://localhost:3000/products/';
+  private productsUrl = 'http://localhost:8080/products/';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
-  constructor(
-    private http: HttpClient,
-    private messageService: MessageService) {
+  constructor(private http: HttpClient,) {
   }
 
   getProducts(): Observable<Product[]> {
@@ -32,11 +30,16 @@ export class ProductService {
     return this.http.put(this.productsUrl + id, product, this.httpOptions);
   }
 
-  deleteProduct(product: Product, id: number): Observable<Product> {
-    return this.http.delete<Product>(this.productsUrl + id, this.httpOptions);
+  deleteProduct(id: number) {
+    return this.http.delete<any>(this.productsUrl + id, this.httpOptions);
   }
 
   addProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(this.productsUrl, product, this.httpOptions);
+  }
+
+  sendEmail(productId: Email): Observable<Email> {
+    debugger
+    return this.http.post<Email>('http://localhost:8080/email',  productId, this.httpOptions);
   }
 }

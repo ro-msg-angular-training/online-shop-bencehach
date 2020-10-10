@@ -4,6 +4,8 @@ import {Location} from '@angular/common';
 import {ProductService} from '../product.service';
 import {Product} from '../product';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {Store} from '@ngrx/store';
+import * as ProductListActions from '../store/actions/product.actions';
 
 @Component({
   selector: 'app-product-edit',
@@ -12,14 +14,17 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class ProductEditComponent implements OnInit {
 
+
   id;
   productForm: FormGroup = new FormGroup({
-    name: new FormControl('',
+
+    id: new FormControl('99'),
+    productName: new FormControl('',
       [
         Validators.required,
         Validators.minLength(4),
       ]),
-    category: new FormControl('',
+    categoryName: new FormControl('',
       [
         Validators.required,
         Validators.minLength(2),
@@ -44,8 +49,10 @@ export class ProductEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private location: Location
+    private location: Location,
+    private store: Store<{ productList: { products: Product[] } }>
   ) {
+
   }
 
   ngOnInit(): void {
@@ -57,12 +64,13 @@ export class ProductEditComponent implements OnInit {
       this.productService.getProduct(this.id).subscribe(data => {
 
           this.productForm = new FormGroup({
-            name: new FormControl(data.name,
+
+            productName: new FormControl(data.productName,
               [
                 Validators.required,
                 Validators.minLength(4),
               ]),
-            category: new FormControl(data.category,
+            categoryName: new FormControl(data.categoryName,
               [
                 Validators.required,
                 Validators.minLength(2),
@@ -100,9 +108,19 @@ export class ProductEditComponent implements OnInit {
 
     if (this.route.snapshot.url.toString().includes('edit')) {
 
+      // this.store.dispatch(
+      //   new ProductListActions.UpdateProduct({
+      //     id: this.id,
+      //     product:this.productForm.value
+      //   })
+      //   );
+      // this.location.back();
       this.productService.updateProduct(this.productForm.value, this.id)
         .subscribe(() => this.goBack());
     } else if (this.route.snapshot.url.toString().includes('add')) {
+
+      // this.store.dispatch(new ProductListActions.AddProduct(this.productForm.value));
+      // this.location.back();
       this.productService.addProduct(this.productForm.value).subscribe(() => this.goBack());
     }
   }

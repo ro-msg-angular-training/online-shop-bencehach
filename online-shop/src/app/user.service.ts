@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-
 import {User} from './user';
-import {config, Observable} from 'rxjs';
-import {Product} from './product';
+import {Observable} from 'rxjs';
 import {Cart, OrderInput} from './OrderInput';
+import {Role} from './Role';
 
 @Injectable({providedIn: 'root'})
 export class UserService {
@@ -15,11 +14,7 @@ export class UserService {
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
-  private apiUrl = 'http://localhost:3000/';
-
-  register(user: User) {
-    return this.http.post(this.apiUrl, user);
-  }
+  private apiUrl = 'http://localhost:8080/';
 
   getUser(username: string): Observable<User> {
     return this.http.get<User>(this.apiUrl + 'users/' + username);
@@ -31,5 +26,17 @@ export class UserService {
 
   postCart(username: string, cart: Cart[]) {
     return this.http.patch(this.apiUrl + 'users/' + username, {cart}, this.httpOptions);
+  }
+
+  deleteFromCart(productId: number, username: string) {
+    return this.http.delete(this.apiUrl + 'cart/' + productId + '/' + username);
+  }
+
+  deleteCartAfterCheckout(username: string) {
+    return this.http.delete(this.apiUrl + 'cart/' + username);
+  }
+
+  register(username: string, password: string, fullName: string, emailAddress: string, role: Role,cart: Cart[]) {
+    return this.http.post<User>(this.apiUrl + 'users/', {username, password, fullName, emailAddress, role, cart}, this.httpOptions);
   }
 }

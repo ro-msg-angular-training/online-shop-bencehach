@@ -4,21 +4,26 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {ProductComponent} from './product/product.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {ProductDetailComponent} from './product-detail/product-detail.component';
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ProductEditComponent} from './product-edit/product-edit.component';
 import {ProductAddComponent} from './product-add/product-add.component';
-import {ReactiveFormsModule} from '@angular/forms';
 import {LogInComponent} from './log-in/log-in.component';
 import {JwtInterceptor} from './jws.interceptors';
 import {ErrorInterceptor} from './error.interceptors';
-import {AuthenticationService} from './authentication.service';
-import {AuthGuard} from './auth.guard';
 import {RouterModule} from '@angular/router';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {StoreModule} from '@ngrx/store';
+import {environment} from '../environments/environment';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {EffectsModule} from '@ngrx/effects';
+import {ProductEffects} from './store/effects/product.effects';
+import {appReducers} from './store/reducers/app.reducer';
+import { RegistrationComponent } from './registration/registration.component';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +35,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LogInComponent,
     ShoppingCartComponent,
     PageNotFoundComponent,
+    RegistrationComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    EffectsModule.forRoot([ProductEffects]),
+    StoreModule.forRoot(appReducers),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

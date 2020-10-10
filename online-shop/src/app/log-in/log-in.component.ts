@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../authentication.service';
-import {AlertService} from '../alert.service';
 import {first} from 'rxjs/operators';
 
 
@@ -24,10 +23,7 @@ export class LogInComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService
   ) {
-
-
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/login']);
@@ -42,7 +38,6 @@ export class LogInComponent implements OnInit {
     });
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
-
   }
 
   get f() {
@@ -62,7 +57,7 @@ export class LogInComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['/products']);
+          this.router.navigate(['/add']).then();
           this.authenticationService.isLoggedIn = true;
           localStorage.setItem('username', this.f.username.value);
         },
