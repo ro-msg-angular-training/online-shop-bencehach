@@ -1,0 +1,172 @@
+.productsNav
+{
+  font-weight: bold;
+  color:black;
+  font-size: 30px;
+  margin-left: -26px;
+
+}
+
+body {
+  background: #eecda3;
+  background: -webkit-linear-gradient(to right, #eecda3, #ef629f);
+  background: linear-gradient(to right, #eecda3, #ef629f);
+  min-height: 100vh;
+}
+
+.productsNav1
+{
+  font-weight: bold;
+  color:black;
+  font-size: 22px;
+  position: relative;
+  left: 100%;
+}
+
+.navbar
+{
+  padding: 0.5rem 0rem;
+}
+
+.btn-secondary{
+  background:#008BFF;
+  position: relative;
+
+  width: 150px;
+  border-radius: 12px;
+  border: 1px solid black;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.btn-secondary1 {
+  background: #008BFF;
+  position: relative;
+  color: white;
+  width: 180px;
+  border-radius: 12px;
+  border: 1px solid black;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  left: 43%;
+  margin-top: 20px;
+}
+
+.btn-secondary2 {
+  background: #008BFF;
+  position: relative;
+  color: white;
+  width: 220px;
+  border-radius: 12px;
+  border: 1px solid black;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  left: 40%;
+  margin-top: 20px;
+}
+
+.row
+{
+  margin-left: -0px;
+  margin-right: 0px;
+}
+
+.row.container
+{
+  width: 1200px;
+}
+.aliniere
+{
+  text-align: center;
+}
+
+table, th, td {
+  border: 2px solid black;
+}
+
+
+.table thead > tr > th { border-bottom: none; }
+
+.btn-primary{
+  background: transparent;
+  color: red;
+  border: none;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+  background: #5BA509;
+  color: white;
+}
+
+.btn-circle1 {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+  background: rgb(188, 38, 32);
+  color: white;
+}
+
+.inputQuantity
+{
+  text-align: center;
+  max-width: 30px;
+  border: none;
+}
+.input-group.plus-minus-input
+{
+  position: relative;
+  left:28%;
+  max-width: 120px;
+}
+.centrat
+{
+  margin-top: 15%;
+}
+
+.alin
+{
+  margin-left: 25%;
+}
+
+.imagine
+{
+  position: relative;
+  left: 45%;
+}
+
+.modal
+{
+  display: block;
+  overflow: scroll;
+}
+
+.cantitate
+{
+  text-align: center;
+}
+
+.modal-footer
+{
+  border-top: none;
+}
+
+.stanga
+{
+  margin-right: 49%;
+}

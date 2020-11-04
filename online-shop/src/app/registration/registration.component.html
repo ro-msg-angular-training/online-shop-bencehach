@@ -1,0 +1,65 @@
+<body>
+<div id="login">
+  <div class="container mb-4">
+    <div id="login-row" class="row justify-content-center align-items-center">
+      <div id="login-column" class="col-md-6">
+        <div id="login-box" class="col-md-12">
+          <form  [formGroup]="registrationForm" id="registration-form" class="form ml-0" action="" method="post">
+            <h3 class="text-left singInBorder mt-0 pb-2">Register</h3>
+            <div class="form-group">
+              <label for="fullName" class="mb-0 pt-2">Full name</label><br>
+              <input type="text" formControlName="fullName" id="fullName" name="fullName" placeholder="" class="input-xlarge">
+            </div>
+            <div class="form-group">
+              <label for="emailAddress" class="mb-0 pt-2">Email</label><br>
+              <input type="text" formControlName="emailAddress" id="emailAddress" name="emailAddress" placeholder="" class="input-xlarge">
+            </div>
+            <div class="form-group">
+              <label for="username" class="mb-0 pt-2">Username</label><br>
+              <input type="text" id="username" formControlName="username" name="username" placeholder="" class="input-xlarge">
+            </div>
+            <div class="form-group">
+              <label for="password" class="mb-0 pt-2">Password</label><br>
+              <input type="password" id="password" formControlName="password" name="password" placeholder="" class="input-xlarge">
+            </div>
+            <div class="form-group">
+              <input type="submit" name="submit" (click)="onSubmit();" class="btn btn-primary mt-3" value="REGISTER">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+ <div style="text-align: center"> <a class="container register" href="/login">Cancel registration</a></div>
+</div>
+
+<div id="myModal" class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="showModal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 style="color: red" class="modal-title" id="exampleModalLongTitle">This username is already used</h5>
+        <button class="close" (click)="modalFunction();closeModal()"><i class="far fa-circle pt-1"></i></button>
+      </div>
+      <div class="modal-body">
+        <h5> Please provide a new username</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModalFullName" class="modal" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="showModalFullName">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 style="color: red" class="modal-title" id="exampleModalLongTitle1">Please insert your full name</h5>
+        <button class="close" (click)="modalFullName();closeModal()"><i class="far fa-circle pt-1"></i></button>
+      </div>
+      <div class="modal-body">
+        <h5>The full name is made of your First and Last name</h5>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+

@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 4%;
+  height: 100vh;
+
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 13%;
+  max-width: 300px;
+  height: 450px;
+  border: 1.5px solid #9E9E9E;
+  background-color: #fff;
+  margin-left: 125px;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+  padding-left: 0px;
+}
+#login .container #login-row #login-column #login-box #login-form #login-link {
+  margin-top: -85px;
+}
+
+.singInBorder
+{
+  border-bottom: 2px solid #e3fdff;
+}
+
+.btn-primary
+{
+  background: rgb(102, 186, 255);
+  width: 200px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+input
+{
+  width: 200px;
+  border: 1.5px solid #9E9E9E;
+}
+
+.modal
+{
+  display: block;
+}
+
+.register{
+  /*position: fixed;*/
+  /*left: 39%;*/
+  font-size: 18px;
+}
